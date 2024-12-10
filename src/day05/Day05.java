@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Day05 {
+    public static void main(String[] args) {
+        new Day05();
+    }
+
     public Day05() {
         try {
             solve();

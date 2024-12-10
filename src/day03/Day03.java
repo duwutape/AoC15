@@ -1,14 +1,15 @@
 package day03;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Day03 {
+    public static void main(String[] args) {
+        new Day03();
+    }
+
 
     int[][] housesY1 = new int[10][10];
     int[][] housesY2 = new int[10][10];
@@ -52,33 +53,33 @@ public class Day03 {
                         if (even) {
                             yS = inBounds(yS - 1, housesY2, "y2", even);
                         } else {
-                            yR = inBounds(yR - 1, housesY2, "y2",even);
+                            yR = inBounds(yR - 1, housesY2, "y2", even);
                         }
-                        y = inBounds(y - 1, housesY1, "y1",even);
+                        y = inBounds(y - 1, housesY1, "y1", even);
                     }
                     case '<' -> {
                         if (even) {
-                            xS = inBounds(xS - 1, housesY2[yS], "y2",even);
+                            xS = inBounds(xS - 1, housesY2[yS], "y2", even);
                         } else {
-                            xR = inBounds(xR - 1, housesY2[yR], "y2",even);
+                            xR = inBounds(xR - 1, housesY2[yR], "y2", even);
                         }
-                        x = inBounds(x - 1, housesY1[y], "y1",even);
+                        x = inBounds(x - 1, housesY1[y], "y1", even);
                     }
                     case '>' -> {
                         if (even) {
-                            xS = inBounds(xS + 1, housesY2[yS], "y2",even);
+                            xS = inBounds(xS + 1, housesY2[yS], "y2", even);
                         } else {
-                            xR = inBounds(xR + 1, housesY2[yR], "y2",even);
+                            xR = inBounds(xR + 1, housesY2[yR], "y2", even);
                         }
-                        x = inBounds(x + 1, housesY1[y], "y1",even);
+                        x = inBounds(x + 1, housesY1[y], "y1", even);
                     }
                     case 'v' -> {
                         if (even) {
-                            yS = inBounds(yS + 1, housesY2, "y2",even);
+                            yS = inBounds(yS + 1, housesY2, "y2", even);
                         } else {
-                            yR = inBounds(yR + 1, housesY2, "y2",even);
+                            yR = inBounds(yR + 1, housesY2, "y2", even);
                         }
-                        y = inBounds(y + 1, housesY1, "y1",even);
+                        y = inBounds(y + 1, housesY1, "y1", even);
                     }
                 }
                 if (even) {
@@ -102,8 +103,8 @@ public class Day03 {
         if (i < 0) {
             biggerArray("t", year);
             i++;
-            if(year.equals("y2")){
-                if(even){
+            if (year.equals("y2")) {
+                if (even) {
                     yR++;
                 } else {
                     yS++;
@@ -119,7 +120,7 @@ public class Day03 {
         if (i < 0) {
             biggerArray("l", year);
             i++;
-            if(year.equals("y2")) {
+            if (year.equals("y2")) {
                 if (even) {
                     xR++;
                 } else {
@@ -146,33 +147,25 @@ public class Day03 {
             case "t" -> {
                 newHouses = new int[houses.length + 1][houses[0].length];
                 for (int y = 0; y < houses.length; y++) {
-                    for (int x = 0; x < houses[y].length; x++) {
-                        newHouses[y + 1][x] = houses[y][x];
-                    }
+                    System.arraycopy(houses[y], 0, newHouses[y + 1], 0, houses[y].length);
                 }
             }
             case "b" -> {
                 newHouses = new int[houses.length + 1][houses[0].length];
                 for (int y = 0; y < houses.length; y++) {
-                    for (int x = 0; x < houses[y].length; x++) {
-                        newHouses[y][x] = houses[y][x];
-                    }
+                    System.arraycopy(houses[y], 0, newHouses[y], 0, houses[y].length);
                 }
             }
             case "l" -> {
                 newHouses = new int[houses.length][houses[0].length + 1];
                 for (int y = 0; y < houses.length; y++) {
-                    for (int x = 0; x < houses[y].length; x++) {
-                        newHouses[y][x + 1] = houses[y][x];
-                    }
+                    System.arraycopy(houses[y], 0, newHouses[y], 1, houses[y].length);
                 }
             }
             case "r" -> {
                 newHouses = new int[houses.length][houses[0].length + 1];
                 for (int y = 0; y < houses.length; y++) {
-                    for (int x = 0; x < houses[y].length; x++) {
-                        newHouses[y][x] = houses[y][x];
-                    }
+                    System.arraycopy(houses[y], 0, newHouses[y], 0, houses[y].length);
                 }
             }
         }

@@ -5,6 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Day01 {
+    public static void main(String[] args) {
+        new Day01();
+    }
+
     public Day01() {
         try {
             solve();
@@ -25,7 +29,7 @@ public class Day01 {
             String line = scanner.nextLine();
 
             for (int i = 0; i < line.length(); i++) {
-                if(count){
+                if (count) {
                     pos++;
                 }
                 if (line.charAt(i) == '(') {
@@ -33,7 +37,7 @@ public class Day01 {
                 } else {
                     floor -= 1;
                 }
-                if(count && floor == -1){
+                if (count && floor == -1) {
                     count = false;
                 }
             }

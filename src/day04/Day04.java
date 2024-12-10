@@ -6,6 +6,10 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 public class Day04 {
+    public static void main(String[] args) {
+        new Day04();
+    }
+
     public Day04() {
         try {
             solve();

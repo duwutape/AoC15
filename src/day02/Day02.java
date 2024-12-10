@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Day02 {
+    public static void main(String[] args) {
+        new Day02();
+    }
+
 
     public Day02() {
         try {

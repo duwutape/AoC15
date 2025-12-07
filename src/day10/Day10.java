@@ -1,8 +1,6 @@
 package day10;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Day10 {
     public static void main(String[] args) {
@@ -26,11 +24,11 @@ public class Day10 {
                 char curChar = str.charAt(i);
                 int count = 0;
                 for (int j = i; j < str.length(); j++) {
-                    if (str.charAt(j)==curChar) {
+                    if (str.charAt(j) == curChar) {
                         count++;
                         i++;
                     } else {
-                        i = j-1;
+                        i = j - 1;
                         break;
                     }
                 }

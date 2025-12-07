@@ -18,7 +18,29 @@ public class Day10 {
     }
 
     private void solve() throws FileNotFoundException {
-        File input = new File("src/day10/input.txt");
-        Scanner scanner = new Scanner(input);
+
+        String str = "1113122113";
+        for (int num = 0; num < 50; num++) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < str.length(); i++) {
+                char curChar = str.charAt(i);
+                int count = 0;
+                for (int j = i; j < str.length(); j++) {
+                    if (str.charAt(j)==curChar) {
+                        count++;
+                        i++;
+                    } else {
+                        i = j-1;
+                        break;
+                    }
+                }
+                sb.append(count).append(curChar);
+            }
+            str = sb.toString();
+            if (num == 39) {
+                System.out.println(str.length());
+            }
+        }
+        System.out.println(str.length());
     }
 }
